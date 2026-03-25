@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: eduspace_db
+    environment:
+      POSTGRES_DB: eduspace
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5432:5432"
+
+  api:
+    build:
+      context: .
+      dockerfile: src/EduSpace.Api/Dockerfile
+    container_name: eduspace_api
+    depends_on:
+      - db
+    ports:
+      - "5000:8080"
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=db;Database=eduspace;Username=admin;Password=password123"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: src/eduspace-ui/Dockerfile
+    container_name: eduspace_ui
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
