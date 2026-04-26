@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("campus.KPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb8ce617b5d16f1bfbe8f343729032dfb1d319c2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85c0becbae87d1dd1e7467c67a2d577b84e64d92")]
 [assembly: System.Reflection.AssemblyProductAttribute("campus.KPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("campus.KPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

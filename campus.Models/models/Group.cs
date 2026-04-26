@@ -1,8 +1,12 @@
 using Models;
+using Models.interfaces;
 
-public class Group
+public class Group : Entity
 {
-    private List<Student> Students { get; set; }
-    private List<Teacher> Teachers { get; set; }
-    public string Name { get; init; } = string.Empty;
+    public Guid Id { get; init; }
+    public List<Student> Students { get; private set; }
+    public List<Teacher> Teachers { get; private set; }
+    public string FullName { get; init; } = string.Empty;
+    public Faculties Faculty { get; init; }
+
 }
