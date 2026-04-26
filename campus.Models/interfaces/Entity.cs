@@ -1,12 +1,15 @@
-﻿
+﻿using Microsoft.AspNetCore.Identity;
+
 namespace Models.interfaces;
 
-public abstract class Entity
+public abstract class Entity : IdentityUser
 {
-    public Guid Id { get; }
-    public string FullName { get; private set; }
+    public Guid Guid { get; init; }
+    public string FullName { get; private set; } = string.Empty;
     public Faculties Faculty { get; private set; }
 }
+
+
 
 
 

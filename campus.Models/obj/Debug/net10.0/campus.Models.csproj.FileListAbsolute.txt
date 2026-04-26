@@ -10,3 +10,4 @@ C:\Users\serka\Desktop\EduSpace\campus.Models\obj\Debug\net10.0\campus.Models.dl
 C:\Users\serka\Desktop\EduSpace\campus.Models\obj\Debug\net10.0\refint\campus.Models.dll
 C:\Users\serka\Desktop\EduSpace\campus.Models\obj\Debug\net10.0\campus.Models.pdb
 C:\Users\serka\Desktop\EduSpace\campus.Models\obj\Debug\net10.0\ref\campus.Models.dll
+C:\Users\serka\Desktop\EduSpace\campus.Models\obj\Debug\net10.0\campus.Models.csproj.AssemblyReference.cache
