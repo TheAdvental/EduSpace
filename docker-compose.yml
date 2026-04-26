@@ -1,34 +1,35 @@
 version: '3.8'
 
 services:
+  # Наша база даних
   db:
     image: postgres:15-alpine
     container_name: eduspace_db
     environment:
       POSTGRES_DB: eduspace
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password123
+      POSTGRES_PASSWORD: password123 # Потім колеги змінять у себе в .env
     ports:
       - "5432:5432"
+    volumes:
+      - eduspace_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d eduspace"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-  api:
-    build:
-      context: .
-      dockerfile: src/EduSpace.Api/Dockerfile
-    container_name: eduspace_api
+  # Візуальний інтерфейс для бази (щоб не тільки через код дивитися)
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: eduspace_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
     depends_on:
       - db
-    ports:
-      - "5000:8080"
-    environment:
-      ConnectionStrings__DefaultConnection: "Host=db;Database=eduspace;Username=admin;Password=password123"
 
-  frontend:
-    build:
-      context: .
-      dockerfile: src/eduspace-ui/Dockerfile
-    container_name: eduspace_ui
-    ports:
-      - "3000:80"
-    depends_on:
-      - api
+volumes:
+  eduspace_data:
