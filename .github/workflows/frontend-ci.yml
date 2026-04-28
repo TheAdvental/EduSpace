@@ -2,9 +2,9 @@ name: Frontend CI
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "develop" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -19,8 +19,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: src/eduspace-ui
+        working-directory: src/EduSpace.UI
 
       - name: Build
         run: npm run build
-        working-directory: src/eduspace-ui
+        working-directory: src/EduSpace.UI
