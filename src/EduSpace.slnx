@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="EduSpace.Api/EduSpace.Api.csproj" />
+  <Project Path="EduSpace.Data/EduSpace.Data.csproj" />
+</Solution>
