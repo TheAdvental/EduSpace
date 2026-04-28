@@ -4,6 +4,8 @@ var app = builder.Build();
 
 app.MapGet("/", () => " Welcome User ");
 
+app.Run();
+
 
 
 

@@ -105,17 +105,17 @@
           }
         }
       },
-      "campus.Models/1.0.0": {
+      "campus.models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.7"
         },
         "compile": {
-          "bin/placeholder/campus.Models.dll": {}
+          "bin/placeholder/campus.models.dll": {}
         },
         "runtime": {
-          "bin/placeholder/campus.Models.dll": {}
+          "bin/placeholder/campus.models.dll": {}
         }
       }
     }
@@ -233,16 +233,16 @@
         "microsoft.openapi.nuspec"
       ]
     },
-    "campus.Models/1.0.0": {
+    "campus.models/1.0.0": {
       "type": "project",
-      "path": "../campus.Models/campus.Models.csproj",
-      "msbuildProject": "../campus.Models/campus.Models.csproj"
+      "path": "../campus.models/campus.models.csproj",
+      "msbuildProject": "../campus.models/campus.models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
       "Microsoft.AspNetCore.OpenApi >= 10.0.7",
-      "campus.Models >= 1.0.0"
+      "campus.models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -277,8 +277,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\serka\\Desktop\\EduSpace\\campus.Models\\campus.Models.csproj": {
-              "projectPath": "C:\\Users\\serka\\Desktop\\EduSpace\\campus.Models\\campus.Models.csproj"
+            "C:\\Users\\serka\\Desktop\\EduSpace\\campus.models\\campus.models.csproj": {
+              "projectPath": "C:\\Users\\serka\\Desktop\\EduSpace\\campus.models\\campus.models.csproj"
             }
           }
         }

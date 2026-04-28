@@ -9,7 +9,7 @@
       "campus.KPI/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": "10.0.7",
-          "campus.Models": "1.0.0"
+          "campus.models": "1.0.0"
         },
         "runtime": {
           "campus.KPI.dll": {}
@@ -75,12 +75,12 @@
           }
         }
       },
-      "campus.Models/1.0.0": {
+      "campus.models/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.7"
         },
         "runtime": {
-          "campus.Models.dll": {
+          "campus.models.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -136,7 +136,7 @@
       "path": "microsoft.openapi/2.0.0",
       "hashPath": "microsoft.openapi.2.0.0.nupkg.sha512"
     },
-    "campus.Models/1.0.0": {
+    "campus.models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
