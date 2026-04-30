@@ -1,0 +1,31 @@
+name: Frontend CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Debug directory structure
+        run: |
+          ls -la src/ || echo "src/ not found"
+          ls -la src/EduSpace.UI/ || echo "src/EduSpace.UI/ not found"
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: src/EduSpace.UI
+
+      - name: Build
+        run: npm run build
+        working-directory: src/EduSpace.UI
