@@ -8,8 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
-
+    // Рекомендація: змінити на UseNpgsql, щоб відповідати docker-compose.yml
+    options.UseNpgsql(connectionString));
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
@@ -40,6 +40,21 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
+// Автоматичне застосування міграцій при старті
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<ApplicationDbContext>();
+        // Це створить базу та таблиці, якщо їх ще немає
+        context.Database.Migrate();
+        Console.WriteLine("Database migration applied successfully.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"An error occurred while migrating the database: {ex.Message}");
+    }
+}
+
 app.Run();
-
-

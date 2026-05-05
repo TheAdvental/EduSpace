@@ -1,20 +1,20 @@
 version: '3.8'
 
 services:
-  # Наша база даних
   db:
-    image: postgres:15-alpine
-    container_name: eduspace_db
+    image: postgres:16-alpine # Використовуємо свіжу та легку версію
+    container_name: eduspace-db
+    restart: always
     environment:
-      POSTGRES_DB: eduspace
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password123 # Потім колеги змінять у себе в .env
-    ports:
-      - "5432:5432"
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
-      - eduspace_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data # Критично для збереження даних
+    ports:
+      - "5432:5432" # Відкрий тільки якщо треба підключитися з дому через pgAdmin
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U admin -d eduspace"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 10s
       timeout: 5s
       retries: 5
